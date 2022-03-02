@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AnsarCollage.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:itemTemplate="clr-namespace:AnsarCollage.Views.ItemTemplate;assembly=AnsarCollage"
+    xmlns:models="clr-namespace:AnsarCollage.Models;assembly=AnsarCollage"
+    BackgroundColor="#f8f8f8"
+    FlowDirection="RightToLeft"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid Margin="0,0,0,0" RowDefinitions="Auto,Auto,*">
+        <Grid Grid.Row="0" Grid.RowSpan="3">
+            <Frame
+                Margin="-25,-50,-50,0"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                HeightRequest="250"
+                IsVisible="False"
+                Rotation="15"
+                VerticalOptions="Start" />
+        </Grid>
+
+        <StackLayout Margin="25,0,25,0">
+
+
+            <Frame
+                Margin="-25,-10,-25,0"
+                Padding="25,40"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                CornerRadius="10"
+                VerticalOptions="Start">
+
+                <StackLayout>
+                    <Grid Margin="0,0,0,0" ColumnDefinitions="*,50">
+                        <StackLayout VerticalOptions="Center">
+                            <StackLayout Orientation="Horizontal">
+                                <Label
+                                    x:Name="nameLable"
+                                    FontSize="Large"
+                                    Text="کالج انصار"
+                                    TextColor="White" />
+                            </StackLayout>
+                        </StackLayout>
+                        <Frame
+                            Grid.Column="1"
+                            Padding="0"
+                            Background="#FFC54E"
+                            CornerRadius="40"
+                            HeightRequest="70"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="70">
+                            <Image Aspect="AspectFill" Source="https://cdn-res.keymedia.com/cms/images/us/026/0222_637049384911763251.JPG" />
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame
+                Margin="0,-25,0,0"
+                Padding="35,8"
+                Background="#FFC54E"
+                CornerRadius="20"
+                HorizontalOptions="Center">
+                <Label
+                    FontFamily="{StaticResource ShabnameBold}"
+                    FontSize="Large"
+                    Text="رشته ها" />
+            </Frame>
+            <Label
+                FontFamily="{StaticResource Shabname}"
+                FontSize="Body"
+                HorizontalOptions="Center"
+                Text="از بین رشته های زیر رشته مورد نظر خود را انتخاب کنید" />
+            <Frame
+                Padding="0"
+                BackgroundColor="Transparent"
+                CornerRadius="25">
+                <Grid RowDefinitions="*">
+                    <CollectionView x:Name="mainCollection">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Frame
+                                    Margin="0"
+                                    Padding="0,0,0,0"
+                                    BackgroundColor="Transparent"
+                                    CornerRadius="20">
+                                    <StackLayout Margin="0,10,0,10">
+                                        <Grid Margin="0,0">
+
+                                            <Frame
+                                                Padding="0"
+                                                BackgroundColor="White"
+                                                CornerRadius="10"
+                                                HeightRequest="150">
+                                                <Image Aspect="AspectFill" Source="https://img.tebyan.net/big/1397/08/13116418389221752212281653239616019835101.jpg?w=380" />
+                                            </Frame>
+                                            <Frame
+                                                Padding="10"
+                                                Background="#90000000"
+                                                CornerRadius="10"
+                                                VerticalOptions="End">
+                                                <Grid ColumnDefinitions="*,Auto" VerticalOptions="End">
+                                                    <Label
+                                                        FontFamily="{StaticResource ShabnameBold}"
+                                                        FontSize="Large"
+                                                        Text="{Binding field}"
+                                                        TextColor="White"
+                                                        VerticalOptions="Center" />
+                                                    <Button
+                                                        Grid.Column="1"
+                                                        Padding="0"
+                                                        BackgroundColor="Transparent"
+                                                        BorderColor="#FFC54E"
+                                                        BorderWidth="2"
+                                                        Clicked="FieldItemButton_OnClicked"
+                                                        CornerRadius="35"
+                                                        FontFamily="{StaticResource ShabnameBold}"
+                                                        FontSize="Body"
+                                                        HeightRequest="40"
+                                                        Text="مشاهده"
+                                                        TextColor="#FFC54E"
+                                                        VerticalOptions="Center" />
+                                                </Grid>
+                                            </Frame>
+
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </Grid>
+
+
+</ContentPage>

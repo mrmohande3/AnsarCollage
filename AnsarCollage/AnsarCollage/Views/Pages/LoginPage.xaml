@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="AnsarCollage.Views.Pages.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:itemTemplate="clr-namespace:AnsarCollage.Views.ItemTemplate;assembly=AnsarCollage"
+    BackgroundColor="White"
+    FlowDirection="RightToLeft"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*,Auto">
+            <StackLayout Margin="20" VerticalOptions="Center">
+
+                <Image Source="student.jpg" />
+                <Label
+                    FontFamily="{StaticResource ShabnameBold}"
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    Text="مدرسه انلاین انصار"
+                    TextColor="{StaticResource PrimaryDarkColor}" />
+                <Label
+                    FontFamily="{StaticResource Shabname}"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    Text="بهترین ها در مدرسه انلاین انصار"
+                    TextColor="{StaticResource PrimaryDarkColor}" />
+            </StackLayout>
+            <ContentView x:Name="mainContent" Grid.Row="1" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

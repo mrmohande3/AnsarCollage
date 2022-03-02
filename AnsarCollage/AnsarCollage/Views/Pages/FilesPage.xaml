@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AnsarCollage.Views.Pages.FilesPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:AnsarCollage.Models;assembly=AnsarCollage"
+    BackgroundColor="#f8f8f8"
+    FlowDirection="RightToLeft"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid Margin="0,0,0,0" RowDefinitions="Auto,Auto,*">
+        <Grid Grid.Row="0" Grid.RowSpan="3">
+            <Frame
+                Margin="-25,-50,-50,0"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                HeightRequest="250"
+                IsVisible="False"
+                Rotation="15"
+                VerticalOptions="Start" />
+        </Grid>
+
+        <StackLayout Margin="25,0,25,0">
+
+
+            <Frame
+                Margin="-25,-10,-25,0"
+                Padding="25,40"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                CornerRadius="10"
+                VerticalOptions="Start">
+
+                <StackLayout>
+                    <Grid Margin="0,0,0,0" ColumnDefinitions="*,50">
+                        <StackLayout VerticalOptions="Center">
+                            <StackLayout Orientation="Horizontal">
+                                <Label
+                                    FontSize="Large"
+                                    Text="فایل های"
+                                    TextColor="White" />
+                                <Label
+                                    x:Name="nameLable"
+                                    FontFamily="{StaticResource ShabnameBold}"
+                                    FontSize="Large"
+                                    Text="زیست شناسی"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+                            </StackLayout>
+                        </StackLayout>
+                        <Button
+                            Grid.Column="1"
+                            Padding="0"
+                            Background="#444"
+                            Clicked="BackButton_OnClicked"
+                            CornerRadius="40"
+                            FontFamily="{StaticResource FontAwsomeFontFamily}"
+                            FontSize="25"
+                            HeightRequest="50"
+                            HorizontalOptions="End"
+                            Text="{x:Static models:FaIconFont.ChevronLeft}"
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            WidthRequest="40" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame
+                Margin="0,-25,0,0"
+                Padding="35,8"
+                Background="#FFC54E"
+                CornerRadius="20"
+                HorizontalOptions="Center">
+                <Label
+                    FontFamily="{StaticResource ShabnameBold}"
+                    FontSize="Large"
+                    Text="فایل های درسی" />
+            </Frame>
+            <Label
+                FontFamily="{StaticResource Shabname}"
+                FontSize="Body"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="شما می توانید فایل هر بخش از اموزش را دانلود کرده و مشاهده کنید" />
+            <CollectionView x:Name="mainCollection" Margin="5">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid>
+                            <Frame
+                                Margin="10"
+                                Padding="2"
+                                BackgroundColor="Accent"
+                                CornerRadius="20"
+                                VerticalOptions="End">
+
+                                <Label
+                                    Margin="0,0,0,0"
+                                    Padding="0,35,0,10"
+                                    FontFamily="{StaticResource Shabname}"
+                                    FontSize="Medium"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    Text="دانلود فایل"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+                            </Frame>
+                            <Frame
+                                Margin="10,10,10,50"
+                                Padding="2"
+                                BackgroundColor="White"
+                                CornerRadius="20"
+                                VerticalOptions="Start">
+                                <StackLayout>
+                                    <Grid>
+                                        <Frame
+                                            Margin="0"
+                                            Padding="0"
+                                            BackgroundColor="Transparent"
+                                            CornerRadius="5"
+                                            HeightRequest="100"
+                                            WidthRequest="150">
+                                            <Image Aspect="AspectFill" Source="https://img.tebyan.net/big/1397/08/13116418389221752212281653239616019835101.jpg?w=380" />
+                                        </Frame>
+                                    </Grid>
+
+
+                                    <Label
+                                        Margin="0,5"
+                                        FontFamily="{StaticResource Shabname}"
+                                        FontSize="Medium"
+                                        HorizontalOptions="Center"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding title}"
+                                        VerticalOptions="Center" />
+                                </StackLayout>
+                            </Frame>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="FileItemButton_OnClicked" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

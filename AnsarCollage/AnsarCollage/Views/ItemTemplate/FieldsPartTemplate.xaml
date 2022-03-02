@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="AnsarCollage.Views.ItemTemplate.FieldsPartTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    FlowDirection="RightToLeft">
+    <ContentView.Content>
+        <Frame
+            Padding="10"
+            BackgroundColor="#EFFBFF"
+            CornerRadius="25">
+
+            <Grid RowDefinitions="Auto,Auto,*">
+                <Frame
+                    Grid.Row="1"
+                    Padding="25,15"
+                    BackgroundColor="White"
+                    CornerRadius="35">
+
+                    <Label
+                        FontFamily="{StaticResource ShabnameBold}"
+                        FontSize="Large"
+                        HorizontalOptions="Start"
+                        Text="رشتــــــه ها"
+                        TextColor="{StaticResource PrimaryDarkColor}"
+                        VerticalOptions="Center" />
+                </Frame>
+                <ScrollView Grid.Row="2">
+                    <CollectionView x:Name="mainCollection">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <Frame
+                                    Margin="10,0,10,0"
+                                    Padding="0,0,0,0"
+                                    BackgroundColor="Transparent"
+                                    CornerRadius="20">
+                                    <StackLayout Margin="10">
+                                        <Grid
+                                            Margin="15,0"
+                                            ColumnDefinitions="Auto,*"
+                                            WidthRequest="150">
+                                            <Frame
+                                                Grid.Column="1"
+                                                Margin="0,0,-50,0"
+                                                Padding="50,0,0,0"
+                                                CornerRadius="15"
+                                                HeightRequest="60"
+                                                VerticalOptions="Center">
+                                                <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                                                    <Label
+                                                        FontFamily="{StaticResource ShabnameBold}"
+                                                        FontSize="Large"
+                                                        Text="{Binding field}"
+                                                        TextColor="{StaticResource PrimaryDarkColor}"
+                                                        VerticalOptions="Center" />
+                                                    <Button
+                                                        Grid.Column="1"
+                                                        Margin="10,0,0,0"
+                                                        Padding="0"
+                                                        BackgroundColor="Transparent"
+                                                        BorderColor="Accent"
+                                                        BorderWidth="1"
+                                                        Clicked="FieldItemButton_OnClicked"
+                                                        CornerRadius="20"
+                                                        HeightRequest="35"
+                                                        Text="مشاهده"
+                                                        TextColor="Accent"
+                                                        WidthRequest="80" />
+                                                </Grid>
+                                            </Frame>
+                                            <Frame
+                                                Padding="0"
+                                                BackgroundColor="White"
+                                                CornerRadius="45"
+                                                HeightRequest="90"
+                                                WidthRequest="90">
+                                                <Image Aspect="AspectFill" Source="https://img.tebyan.net/big/1397/08/13116418389221752212281653239616019835101.jpg?w=380" />
+                                            </Frame>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

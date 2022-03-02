@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="AnsarCollage.Views.ItemTemplate.LoginPhonePartTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+        <Grid>
+            <RefreshView x:Name="mainRefresh">
+                <RefreshView.Content>
+                    <Frame Padding="30,60" BackgroundColor="{StaticResource PrimaryColor}">
+                        <StackLayout>
+
+                            <Label
+                                FontFamily="{StaticResource ShabnameBold}"
+                                FontSize="Large"
+                                Text="ورود و ثبتــ نام"
+                                TextColor="White" />
+                            <Label
+                                Margin="0,0,0,30"
+                                FontFamily="{StaticResource ShabnameBold}"
+                                Text="برای ورود یا ثبت نام شماره تلفن خود را وارد کنید"
+                                TextColor="White" />
+                            <Entry
+                                x:Name="phoneEntry"
+                                Keyboard="Numeric"
+                                Placeholder="شماره تلفن شما"
+                                PlaceholderColor="#90ffffff" />
+                            <Button
+                                BackgroundColor="#4632A2"
+                                Clicked="SubmitButton_OnClicked"
+                                CornerRadius="25"
+                                FontFamily="{StaticResource ShabnameBold}"
+                                HorizontalOptions="Start"
+                                Text="تایید"
+                                TextColor="White" />
+                        </StackLayout>
+                    </Frame>
+                </RefreshView.Content>
+            </RefreshView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
